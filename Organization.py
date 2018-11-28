@@ -34,7 +34,7 @@ class Organization:
         while sum(lis) != self.numPeop:
             lims = lims >> 1 if lims > (self.numPeop*2) / (self.numProj + self.numSkill) else lims
             del lis
-            lis = [randint(0, lims) for _ in range(self.numProj * self.numSkill)]
+            lis = [randint(1, lims) for _ in range(self.numProj * self.numSkill)]
             print(lis, sum(lis), lims)
             #dd = input()
 
@@ -72,8 +72,8 @@ class Organization:
         print(t.draw())
 
 
-if __name__ == "__main__":
-    org = Organization(2, 10, 25)
+def organizationgenerator():
+    org = Organization(5, 5, 50)
     org.display()
     x = input()
     with open('filename3.pickle', 'wb') as handle:
