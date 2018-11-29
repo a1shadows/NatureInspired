@@ -18,13 +18,13 @@ class Organization:
     def _generateSocioMat(self):
         possibilities = [-1, 0, 1]
         self.socioMat = [[possibilities[randint(0, 2)] for _ in range(self.numPeop)] for _ in range(self.numPeop)]
-        print([len(i) for i in self.socioMat], len(self.socioMat))
+        #print([len(i) for i in self.socioMat], len(self.socioMat))
 
     def _generateSkillDist(self):
         temp = 1
         self.skillDist = []
         for i in self.skillReq.sum(axis = 0):
-            self.skillDist.append(list(range(temp, temp + i - 1)))
+            self.skillDist.append(list(range(temp, temp + i)))
             temp = temp + i
 
 
@@ -72,8 +72,8 @@ class Organization:
         print(t.draw())
 
 
-def organizationgenerator():
-    org = Organization(5, 5, 50)
+if __name__ == "__main__":
+    org = Organization(3, 3, 50)
     org.display()
     x = input()
     with open('filename3.pickle', 'wb') as handle:
